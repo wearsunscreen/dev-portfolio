@@ -1,0 +1,37 @@
+Navigate the pufferfish through the obstacles. 
+Pass seven obstacles without fail to advance to the next level.
+J -- Up
+K -- Down
+
+Clear the bricks to advance to the next level
+H -- Left
+K -- Right
+
+Eat the apples to grow the snake longer.
+J -- Up
+K -- Down
+
+Enter Insert Mode to eat the apple.
+Exit Insert Mode to move the snake.
+I - enter insert mode to be able to eat the apple
+Esc - exit insert mode to be abel to direct the snake
+H, J, K, L -- direct snake
+
+Delete lines to line up 3 identical jewels in a vertical column. 
+Matching gems will turn the squares gold. 
+Turn all squares gold to advance to the next level. 
+Delete lines to connect 3 matching jewels.
+Be careful. If you you try to delete a line that doesn't 
+match up three jewels you'll lose gold!
+D, D -- Delete line
+D, [2, 3, 4 .. 9], Enter -- Delete multiple lines
+
+Visual Mode in VI lets you make a text selection.
+V -- Enter visual and the navigation keys (H,J,K,L)
+to select jewels. 
+D -- Delete the selection.
+Escape -- Exit visual mode.
+
+Challenge Level
+Use all the skills you've learned toto complete this level!
+
