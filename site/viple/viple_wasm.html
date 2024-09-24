@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<script src="wasm_exec.js"></script>
-<script>
-// Polyfill
-if (!WebAssembly.instantiateStreaming) {
-    WebAssembly.instantiateStreaming = async (resp, importObject) => {
-        const source = await (await resp).arrayBuffer();
-        return await WebAssembly.instantiate(source, importObject);
-    };
-}
-
-const go = new Go();
-WebAssembly.instantiateStreaming(fetch("viple.wasm"), go.importObject).then(result => {
-    go.run(result.instance);
-});
-</script>
+<html>
+<head>
+    <style>
+        h2 {
+            color: #11e411;
+        }
+    </style>
+    <script src="wasm_exec.js"></script>
+</head>
 <body>
+    <script>
+    // Polyfill
+    if (!WebAssembly.instantiateStreaming) {
+        WebAssembly.instantiateStreaming = async (resp, importObject) => {
+            const source = await (await resp).arrayBuffer();
+            return await WebAssembly.instantiate(source, importObject);
+        };
+    }
+
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("viple.wasm"), go.importObject).then(result => {
+        go.run(result.instance);
+    });
+    </script>
     <h2>Loading Viple. This may take a minute the first time you load.</h2>
 </body>
+</html>
