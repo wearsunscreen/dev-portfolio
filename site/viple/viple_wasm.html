@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
-        h2 {
-            color: #11e411;
+        h2[name="loadingMsg"] {
+            color: green;
+            display: none;
+            /* Initially hide the h2 element */
         }
     </style>
     <script src="wasm_exec.js"></script>
 </head>
+
 <body>
     <script>
-    // Polyfill
-    if (!WebAssembly.instantiateStreaming) {
-        WebAssembly.instantiateStreaming = async (resp, importObject) => {
-            const source = await (await resp).arrayBuffer();
-            return await WebAssembly.instantiate(source, importObject);
-        };
-    }
+        // Polyfill
+        let loading = true;
+        if (!WebAssembly.instantiateStreaming) {
+            WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                const source = await (await resp).arrayBuffer();
+                let result = await WebAssembly.instantiate(source, importObject);
+                loading = false;
+                document.querySelector('h2[name="loadingMsg"]').style.display = 'none'; // Hide the h2 element
+                return result;
+            };
+        }
 
-    const go = new Go();
-    WebAssembly.instantiateStreaming(fetch("viple.wasm"), go.importObject).then(result => {
-        go.run(result.instance);
-    });
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("viple.wasm"), go.importObject).then(result => {
+            go.run(result.instance);
+            loading = false;
+            document.querySelector('h2[name="loadingMsg"]').style.display = 'none'; // Hide the h2 element
+        });
+
+        if (loading) {
+            document.querySelector('h2[name="loadingMsg"]').style.display = 'block'; // Show the h2 element
+        }
     </script>
-    <h2>Loading Viple. This may take a minute the first time you load.</h2>
+    <h2 name="loadingMsg">Loading Viple. This may take a minute the first time you load.</h2>
 </body>
+
 </html>
