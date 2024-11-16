@@ -1,8 +1,0 @@
-Convolutional Neural Networks - DeepLearning.AI.pdf
-Deep Learning - Coursera ADBRZ3AUSU8C.pdf
-Deep Learning Sequence Models- Coursera 9RQTTVGBUTTN.pdf
-Machine Learning Foundations_ A Case Study Approach -Coursera LG7LPARFJWJY.pdf
-Machine Learning - Stanford Coursera FPLQFCNLPWZS.pdf
-Neural Networks and Deep Learning - Coursera Y2VNYSX9ZZ4Q.pdf
-new.txt
-Structuring Machine Learning Projects - Deep Learning AI.pdf
